@@ -9,6 +9,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "connect": "^3.5.0",
     "mplayer": "^2.1.0"
   }
 }
