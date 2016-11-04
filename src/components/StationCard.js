@@ -5,8 +5,8 @@ class StationCard extends React.Component {
         return (
             <div>
                 <a href="images/fulls/01.jpg">
-                    <img src="images/thumbs/01.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                    <img src={this.props.station.img} alt="" style={{maxWidth: 145}} /> {/* 145 is size of images */}
+                    <h3>{this.props.station.name}</h3>
                 </a>
             </div>
         );
