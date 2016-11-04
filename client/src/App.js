@@ -4,16 +4,21 @@ import StationCard from './components/StationCard'
 
 import logo from './logo.jpg'
 
-import dummy from './dummydata/favourites';
-
 class App extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            stations: dummy.data
+            prefix: 'f',
+            stations: [] // null -> loading
         };
+    }
+
+    componentDidMount() {
+        fetch(`/stations/${this.state.prefix}`)
+            .then(r => r.json())
+            .then(stations => this.setState({ stations }))
     }
 
     onStationClick(station) {
