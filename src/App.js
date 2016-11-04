@@ -1,7 +1,8 @@
 import React from 'react';
 import Template from './template/Template'
-
 import StationCard from './components/StationCard'
+
+import logo from './logo.jpg'
 
 class App extends React.Component {
     render() {
@@ -10,7 +11,7 @@ class App extends React.Component {
         ));
 
         return (
-            <Template stations={stations} />
+            <Template avatar={logo} stations={stations} />
         );
     }
 }
