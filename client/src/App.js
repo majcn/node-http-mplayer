@@ -30,7 +30,7 @@ class App extends React.Component {
 
     render() {
         let stations = this.state.stations.map(station => (
-            <StationCard station={station} onClick={this.onStationClick} />
+            <StationCard key={station.id} station={station} onClick={this.onStationClick} />
         ));
 
         return (
