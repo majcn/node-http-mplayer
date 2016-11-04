@@ -14,16 +14,7 @@ class Template extends React.Component {
 
               <section id="main">
                 <section className="thumbnails">
-                    {
-                        [1,1,1,1,1].map(station => (
-                            <div>
-                              <a href="images/fulls/01.jpg">
-                                <img src="images/thumbs/01.jpg" alt="" />
-                                <h3>Lorem ipsum dolor sit amet</h3>
-                              </a>
-                            </div>
-                        ))
-                    }
+                    { this.props.stations }
                 </section>
               </section>
             </div>
