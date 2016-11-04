@@ -2384,6 +2384,10 @@
 		-webkit-flex-direction: row;
 		-ms-flex-direction: row;
 		flex-direction: row;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
 		position: relative;
 		margin: 0 0 2em -2em;
 	}
