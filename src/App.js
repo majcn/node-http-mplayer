@@ -16,9 +16,13 @@ class App extends React.Component {
         };
     }
 
+    onStationClick(station) {
+        console.log(station);
+    }
+
     render() {
         let stations = this.state.stations.map(station => (
-            <StationCard station={station} />
+            <StationCard station={station} onClick={this.onStationClick} />
         ));
 
         return (

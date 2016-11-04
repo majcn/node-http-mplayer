@@ -2,11 +2,14 @@ import React from 'react';
 
 class StationCard extends React.Component {
     render() {
+        let { station } = this.props;
+        let maxImageWidth = 145; // 145 is size of images
+
         return (
             <div>
-                <a href="images/fulls/01.jpg">
-                    <img src={this.props.station.img} alt="" style={{maxWidth: 145}} /> {/* 145 is size of images */}
-                    <h3>{this.props.station.name}</h3>
+                <a onClick={this.props.onClick.bind(null, station)}>
+                    <img src={station.img} alt="" style={{maxWidth: maxImageWidth}} />
+                    <h3>{station.name}</h3>
                 </a>
             </div>
         );
