@@ -17,7 +17,10 @@ class App extends React.Component {
     }
 
     onStationClick(station) {
-        console.log(station);
+        fetch(`/radio/f/${station.id}`)
+            .then(r => r.json())
+            .then(r => console.log(r))
+            .catch(e => console.error(e))
     }
 
     render() {
