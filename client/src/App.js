@@ -10,22 +10,31 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            prefix: 'f',
-            stations: [] // null -> loading
-        };
+            stations: []
+        }
+
+        let group = props.params.group;
+        this.updateStations(group);
     }
 
-    componentDidMount() {
-        fetch(`/stations/${this.state.prefix}`)
-            .then(r => r.json())
+    componentWillReceiveProps(nextProps) {
+        let group = nextProps.params.group;
+        if (group === this.props.params.group) {
+            return;
+        }
+
+        this.updateStations(group);
+    }
+
+    updateStations(group) {
+        fetch(`/stations/${group}`)
+            .then(response => response.json())
+            .then(stations => stations.map(station => Object.assign(station, { group })))
             .then(stations => this.setState({ stations }))
     }
 
     onStationClick(station) {
-        fetch(`/radio/f/${station.id}`)
-            .then(r => r.json())
-            .then(r => console.log(r))
-            .catch(e => console.error(e))
+        fetch(`/radio/${station.group}/${station.id}`)
     }
 
     render() {
