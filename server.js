@@ -14,6 +14,7 @@ const stations = require('./data/stations')();
 const MPlayer = require('mplayer');
 const player = new MPlayer();
 player.volume(100);
+player.openFile('http://live.radio1.si/Radio1');
 app.use((req, res, next) => {
     req.malinca = {};
     req.malinca.player = player;
