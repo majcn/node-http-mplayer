@@ -2,7 +2,7 @@ import React from 'react';
 import Template from './template/Template'
 import StationCard from './components/StationCard'
 
-import logo from './logo.jpg'
+import logo from './logo.png'
 
 class App extends React.Component {
 
