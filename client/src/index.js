@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 
-import App from './App';
-
 import 'whatwg-fetch';
+
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/material.js';
+import 'material-design-icons/iconfont/material-icons.css' // <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+import App from './App';
 
 const defaultStationGroup = 'f';
 
