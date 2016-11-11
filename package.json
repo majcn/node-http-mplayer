@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "lodash": "^4.16.6",
-    "mplayer": "^2.1.0"
+    "mplayer": "^2.1.0",
+    "youtube-dl": "^1.11.1"
   }
 }
