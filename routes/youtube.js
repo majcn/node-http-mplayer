@@ -18,13 +18,13 @@ router.get('/:id', (req, res, next) => {
       .sort((a,b) => parseInt(a.format_id, 10) > parseInt(b.format_id, 10))
       .pop()
 
-      if (!format) {
-        next();
-        return;
-      }
+    if (!format) {
+      next();
+      return;
+    }
 
-      req.malinca.player.openFile(format.url);
-      res.json(format);
+    req.malinca.player.openFile(format.url);
+    res.json(format);
   })
 });
 
