@@ -12,7 +12,7 @@ router.get('/:group/:id', (req, res, next) => {
     return;
   }
 
-  req.malinca.player.openFile(station.url);
+  req.malinca.player.loadStream(station.url);
   res.json(station);
 });
 

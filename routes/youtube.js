@@ -8,7 +8,6 @@ router.get('/:id', (req, res, next) => {
 
   youtubedl.getInfo(id, (err, info) => {
     if (err) {
-      console.log("NEKI NI QL", err);
       next();
       return;
     }
@@ -23,7 +22,7 @@ router.get('/:id', (req, res, next) => {
       return;
     }
 
-    req.malinca.player.openFile(format.url);
+    req.malinca.player.loadStream(format.url);
     res.json(format);
   })
 });
