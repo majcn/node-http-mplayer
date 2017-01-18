@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 // Custom entries
 const stations = require('./data/stations')();
 const mpv = require('node-mpv')
-const player = new mpv({ "audio_only": true })
+const player = new mpv({ "ipc_command": "--input-unix-socket", "audio_only": true })
 player.volume(100);
 player.loadStream('http://live.radio1.si/Radio1');
 app.use((req, res, next) => {
