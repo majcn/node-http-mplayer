@@ -7,7 +7,7 @@ router.get('/:id', (req, res, next) => {
   req.malinca.player.loadStream(`ytdl://${id}`);
 
   req.malinca.player.getProperty("media-title")
-    .then(title => req.json(title))
+    .then(title => res.json(title))
     .catch(next);
 });
 
