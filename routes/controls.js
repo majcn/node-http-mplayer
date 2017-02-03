@@ -12,7 +12,9 @@ router.get('/volume/:value(1?[0-9]?[0-9])', (req, res, next) => {
 router.get('/next', (req, res, next) => {
   req.malinca.player.next();
 
-  res.json("next");
+  req.malinca.player.getProperty("media-title")
+    .then(title => req.json(title))
+    .catch(next);
 });
 
 module.exports = router;
