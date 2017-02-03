@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 app.use('/radio',    require('./routes/radio'));
 app.use('/stations', require('./routes/stations'));
 app.use('/youtube',  require('./routes/youtube'));
+app.use('/controls', require('./routes/controls'));
 
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`)
