@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 
 import App from './App';
 
@@ -9,11 +9,11 @@ import 'whatwg-fetch';
 const defaultStationGroup = 'f';
 
 ReactDOM.render((
-    <Router history={hashHistory}>
-        <Route path="/">
-            <IndexRedirect to={defaultStationGroup} />
-            <Route path="/:group" component={App} />
-        </Route>
-    </Router>
+    <BrowserRouter>
+        <div>
+            <Route path='/:group' component={App} />
+            <Redirect path='/' to={defaultStationGroup} />
+        </div>
+    </BrowserRouter>
     ), document.getElementById('root')
 );

@@ -1,21 +1,18 @@
 const _ = require('lodash');
 
-const express = require('express');
-const router = express.Router();
+const Router = require('koa-router');
+const router = new Router();
 
-router.get('/', (req, res) => {
-  res.json(_.keys(req.malinca.stations));
+router.get('/', async ctx => {
+  ctx.body = _.keys(ctx.malinca.stations);
 });
 
-router.get('/:group', (req, res, next) => {
-  let group = req.params.group;
-  let sGroup = req.malinca.stations[group] || {};
-  if (_.isEmpty(sGroup)) {
-    next();
-    return;
+router.get('/:group', async ctx => {
+  let group = ctx.params.group;
+  let sGroup = ctx.malinca.stations[group] || {};
+  if (!_.isEmpty(sGroup)) {
+  	ctx.body = _.values(sGroup);
   }
-
-  res.json(_.values(sGroup));
 });
 
 module.exports = router;

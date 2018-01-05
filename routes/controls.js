@@ -1,20 +1,19 @@
-const express = require('express');
-const router = express.Router();
+const Router = require('koa-router');
+const router = new Router();
 
-router.get('/volume/:value(1?[0-9]?[0-9])', (req, res, next) => {
-  let volume = req.params.value;
+router.get('/volume/:value(1?[0-9]?[0-9])', async ctx => {
+  let volume = ctx.params.value;
 
-  req.malinca.player.volume(volume);
+  ctx.malinca.player.volume(volume);
 
-  res.json(volume);
+  ctx.body = volume
 });
 
-router.get('/next', (req, res, next) => {
-  req.malinca.player.next();
+router.get('/next', async ctx => {
+  ctx.malinca.player.next();
 
-  req.malinca.player.getProperty("media-title")
-    .then(title => res.json(title))
-    .catch(next);
+  let title = await ctx.malinca.player.getProperty('media-title')
+  ctx.body = title
 });
 
 module.exports = router;

@@ -13,13 +13,13 @@ class App extends React.Component {
             stations: []
         }
 
-        let group = props.params.group;
+        let group = props.match.params.group;
         this.updateStations(group);
     }
 
     componentWillReceiveProps(nextProps) {
-        let group = nextProps.params.group;
-        if (group === this.props.params.group) {
+        let group = nextProps.match.params.group;
+        if (group === this.props.match.params.group) {
             return;
         }
 
